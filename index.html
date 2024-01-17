@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta
+      name="viewport"
+      content=""
+      width="device-width,"
+      initial-scale="1.0"
+    />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="card">
+      <div class="search">
+        <input type="text" placeholder="enter city name" spellcheck="false" />
+        <button><img src="images/search.png" /></button>
+      </div>
+      <div class="error">
+        <p>Invalid city name</p>
+      </div>
+      <div class="weather">
+        <img class="weather-icon" />
+        <h1 class="temp"></h1>
+        <h2 class="city"></h2>
+        <div class="details">
+          <div class="col">
+            <img src="images/humidity.png" />
+            <div>
+              <p class="humidity"></p>
+              <p>Humidity</p>
+            </div>
+          </div>
+          <div class="col">
+            <img src="images/wind.png" />
+            <div>
+              <p class="wind"></p>
+              <p>Wind Speed</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="parent">
+      <div class="child">
+        <div class="card_chicago">
+          <div class="error_chicago">
+            <p>Invalid city name</p>
+          </div>
+          <div class="weather_chicago">
+            <img class="weather-icon_chicago" />
+            <h1 class="temp_chicago"></h1>
+            <h2 class="city_chicago"></h2>
+            <div class="details_chicago">
+              <div class="col_chicago">
+                <img src="images/humidity.png" />
+                <div>
+                  <p class="humidity_chicago"></p>
+                  <p>Humidity</p>
+                </div>
+              </div>
+              <div class="col_chicago">
+                <img src="images/wind.png" />
+                <div>
+                  <p class="wind_chicago"></p>
+                  <p>Wind Speed</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="child">
+        <div class="card_new_york">
+          <div class="error_new_york">
+            <p>Invalid city name</p>
+          </div>
+          <div class="weather_new_york">
+            <img class="weather-icon_new_york" />
+            <h1 class="temp_new_york"></h1>
+            <h2 class="city_new_york"></h2>
+            <div class="details_new_york">
+              <div class="col_new_york">
+                <img src="images/humidity.png" />
+                <div>
+                  <p class="humidity_new_york"></p>
+                  <p>Humidity</p>
+                </div>
+              </div>
+              <div class="col_new_york">
+                <img src="images/wind.png" />
+                <div>
+                  <p class="wind_new_york"></p>
+                  <p>Wind Speed</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="child">
+        <div class="card_miami">
+          <div class="error_miami">
+            <p>Invalid city name</p>
+          </div>
+          <div class="weather_miami">
+            <img class="weather-icon_miami" />
+            <h1 class="temp_miami"></h1>
+            <h2 class="city_miami"></h2>
+            <div class="details_miami">
+              <div class="col_miami">
+                <img src="images/humidity.png" />
+                <div>
+                  <p class="humidity_miami"></p>
+                  <p>Humidity</p>
+                </div>
+              </div>
+              <div class="col_miami">
+                <img src="images/wind.png" />
+                <div>
+                  <p class="wind_miami"></p>
+                  <p>Wind Speed</p>
+                </div>
+              </div>
+            </div>
+          </div>
+      <div class="child">
+          <div class="card_losangeles">
+              <div class="error_losangeles">
+                <p>Invalid city name</p>
+              </div>
+              <div class="weather_losangeles">
+                <img class="weather-icon_losnageles" />
+                <h1 class="temp_losangeles"></h1>
+                <h2 class="city_losangeles"></h2>
+                <div class="details_losangeles">
+                  <div class="col_losangeles">
+                    <img src="images/humidity.png" />
+                    <div>
+                      <p class="humidity_losangeles"></p>
+                      <p>Humidity</p>
+                    </div>
+                  </div>
+                  <div class="col_losangeles">
+                    <img src="images/wind.png" />
+                    <div>
+                      <p class="wind_losangeles"></p>
+                      <p>Wind Speed</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const apiKey = "917257935c7d11579613acd1a10dd6a2";
+      const apiUrl =
+        "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+
+      const searchBox = document.querySelector(".search input");
+      const searchBtn = document.querySelector(".search button");
+      const weatherIcon = document.querySelector(".weather-icon");
+
+      async function checkWeather(city) {
+        const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
+
+        console.log("response", response);
+
+        if (response.status == 404) {
+          document.querySelector(".error").style.display = "block";
+          document.querySelector(".weather").style.display = "none";
+        } else {
+          var data = await response.json();
+
+          document.querySelector(".city").innerHTML = data.name;
+          document.querySelector(".temp").innerHTML =
+            Math.round(data.main.temp) + "°c";
+          document.querySelector(".humidity").innerHTML =
+            data.main.humidity + "%";
+          document.querySelector(".wind").innerHTML = data.wind.speed + "km/h";
+
+          if (data.weather[0].main == "Clouds") {
+            weatherIcon.src = "images/clouds.png";
+          } else if (data.weather[0].main == "Clear") {
+            weatherIcon.src = "images/clear.png";
+          } else if (data.weather[0].main == "Rain") {
+            weatherIcon.src = "images/rain.png";
+          } else if (data.weather[0].main == "Drizzle") {
+            weatherIcon.src = "images/drizzle.png";
+          } else if (data.weather[0].main == "Mist") {
+            weatherIcon.src = "images/mist.png";
+          }
+          document.querySelector(".weather").style.display = "block";
+          document.querySelector(".error").style.display = "none";
+        }
+      }
+
+      async function checkWeatherChicago(city) {
+        const weatherIconChicago = document.querySelector(
+          ".weather-icon_chicago"
+        );
+        const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
+
+        if (response.status == 404) {
+          document.querySelector(".error_chicago").style.display = "block";
+          document.querySelector(".weather_chicago").style.display = "none";
+        } else {
+          var data = await response.json();
+
+          document.querySelector(".city_chicago").innerHTML = data.name;
+          document.querySelector(".temp_chicago").innerHTML =
+            Math.round(data.main.temp) + "°c";
+          document.querySelector(".humidity_chicago").innerHTML =
+            data.main.humidity + "%";
+          document.querySelector(".wind_chicago").innerHTML =
+            data.wind.speed + "km/h";
+
+          if (data.weather[0].main == "Clouds") {
+            weatherIconChicago.src = "images/clouds.png";
+          } else if (data.weather[0].main == "Clear") {
+            weatherIconChicago.src = "images/clear.png";
+          } else if (data.weather[0].main == "Rain") {
+            weatherIconChicago.src = "images/rain.png";
+          } else if (data.weather[0].main == "Drizzle") {
+            weatherIconChicago.src = "images/drizzle.png";
+          } else if (data.weather[0].main == "Mist") {
+            weatherIconChicago.src = "images/mist.png";
+          }
+          document.querySelector(".weather_chicago").style.display = "block";
+          document.querySelector(".error_chicago").style.display = "none";
+        }
+      }
+
+      async function checkWeatherNewYork(city) {
+        const weatherIconNewYork = document.querySelector(
+          ".weather-icon_new_york"
+        );
+        const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
+
+        if (response.status == 404) {
+          document.querySelector(".error_new_york").style.display = "block";
+          document.querySelector(".weather_new_york").style.display = "none";
+        } else {
+          var data = await response.json();
+
+          document.querySelector(".city_new_york").innerHTML = data.name;
+          document.querySelector(".temp_new_york").innerHTML =
+            Math.round(data.main.temp) + "°c";
+          document.querySelector(".humidity_new_york").innerHTML =
+            data.main.humidity + "%";
+          document.querySelector(".wind_new_york").innerHTML =
+            data.wind.speed + "km/h";
+
+          if (data.weather[0].main == "Clouds") {
+            weatherIconNewYork.src = "images/clouds.png";
+          } else if (data.weather[0].main == "Clear") {
+            weatherIconNewYork.src = "images/clear.png";
+          } else if (data.weather[0].main == "Rain") {
+            weatherIconNewYork.src = "images/rain.png";
+          } else if (data.weather[0].main == "Drizzle") {
+            weatherIconNewYork.src = "images/drizzle.png";
+          } else if (data.weather[0].main == "Mist") {
+            weatherIconNewYork.src = "images/mist.png";
+          }
+          document.querySelector(".weather_new_york").style.display = "block";
+          document.querySelector(".error_new_york").style.display = "none";
+        }
+      }
+
+      async function checkWeatherMiami(city) {
+        const weatherIconMiami = document.querySelector(".weather-icon_miami");
+        const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
+
+        if (response.status == 404) {
+          document.querySelector(".error_miami").style.display = "block";
+          document.querySelector(".weather_miami").style.display = "none";
+        } else {
+          var data = await response.json();
+
+          document.querySelector(".city_miami").innerHTML = data.name;
+          document.querySelector(".temp_miami").innerHTML =
+            Math.round(data.main.temp) + "°c";
+          document.querySelector(".humidity_miami").innerHTML =
+            data.main.humidity + "%";
+          document.querySelector(".wind_miami").innerHTML =
+            data.wind.speed + "km/h";
+
+          if (data.weather[0].main == "Clouds") {
+            weatherIconMiami.src = "images/clouds.png";
+          } else if (data.weather[0].main == "Clear") {
+            weatherIconMiami.src = "images/clear.png";
+          } else if (data.weather[0].main == "Rain") {
+            weatherIconMiami.src = "images/rain.png";
+          } else if (data.weather[0].main == "Drizzle") {
+            weatherIconMiami.src = "images/drizzle.png";
+          } else if (data.weather[0].main == "Mist") {
+            weatherIconMiami.src = "images/mist.png";
+          }
+          document.querySelector(".weather_miami").style.display = "block";
+          document.querySelector(".error_miami").style.display = "none";
+        }
+      }
+
+      async function checkWeatherLosAngeles(city) {
+        const weatherIconLosAngeles = document.querySelector(".weather-icon_miami");
+        const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
+
+        if (response.status == 404) {
+          document.querySelector(".error_losangeles").style.display = "block";
+          document.querySelector(".weather_losangeles").style.display = "none";
+        } else {
+          var data = await response.json();
+
+          document.querySelector(".city_losangeles").innerHTML = data.name;
+          document.querySelector(".temp_losangeles").innerHTML =
+            Math.round(data.main.temp) + "°c";
+          document.querySelector(".humidity_losangeles").innerHTML =
+            data.main.humidity + "%";
+          document.querySelector(".wind_losangeles").innerHTML =
+            data.wind.speed + "km/h";
+
+          if (data.weather[0].main == "Clouds") {
+            weatherIconLosAngeles.src = "images/clouds.png";
+          } else if (data.weather[0].main == "Clear") {
+            weatherIconLosAngeles.src = "images/clear.png";
+          } else if (data.weather[0].main == "Rain") {
+            weatherIconLosAngeles.src = "images/rain.png";
+          } else if (data.weather[0].main == "Drizzle") {
+            weatherIconLosAngeles.src = "images/drizzle.png";
+          } else if (data.weather[0].main == "Mist") {
+            weatherIconLosAngeles.src = "images/mist.png";
+          }
+          document.querySelector(".weather_losangeles").style.display = "block";
+          document.querySelector(".error_losangeles").style.display = "none";
+        }
+      }
+
+      searchBtn.addEventListener("click", () => {
+        checkWeather(searchBox.value);
+      });
+      checkWeatherChicago("chicago");
+      checkWeatherNewYork("new york");
+      checkWeatherMiami("miami");
+      checkWeatherLosAngeles("los angeles");
+
+    </script>
+  </body>
+</html>
