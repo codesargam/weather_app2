@@ -1,0 +1,456 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+}
+body{
+    background: #222;
+}
+.card{
+    width: 90%;
+    max-width: 470px;
+    background: linear-gradient(135deg, #00feba, #5b548a);
+    color: #fff;
+    margin: 100px auto 0;
+    border-radius: 20px;
+    padding: 40px 35px;
+    text-align: center;
+
+}
+.search{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+.search input{
+  border: 0;
+  outline: 0;
+  background: #ebfffc;
+  color: #555;
+  padding: 10px 25px;
+  height: 60px;
+  border-radius: 30px;
+  flex: 1;
+  margin-right: 16px;
+  font-size: 18px;
+
+}
+.search button{
+  border: 0;
+  outline: 0;
+  background: #ebfffc;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+}
+.search button img{
+  width: 16px;
+}
+.weather-icon{
+  width: 170px;
+  margin-top: 30px;
+
+}
+.weather h1{
+  font-size: 45px;
+  font-weight: 400;
+  margin-top: -10px;
+}
+.details{
+  display: flex;
+  align-items: center;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  margin-top: 50px;
+}
+.parent {
+  text-align: center;
+}
+.child {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.col{
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+.col img{
+  width: 40px;
+  margin-right: 10px;
+}
+.humidity, .wind{
+  font-size: 28px;
+  margin-top: -6px;
+  
+}
+.weather{
+  display: none;
+}
+.error{
+  text-align: left;
+  margin-left: 10px;
+  font-size: 14px;
+  margin-top: 10px;
+  display: none;
+}
+
+.card_chicago{
+  width: 90%;
+  max-width: 470px;
+  background: linear-gradient(135deg, #00feba, #5b548a);
+  color: #fff;
+  margin: 100px auto 0;
+  border-radius: 20px;
+  padding: 40px 35px;
+  text-align: center;
+  display: inline-block;
+
+}
+.search_chicago{
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: space-between;
+
+}
+.search_chicago input{
+border: 0;
+outline: 0;
+background: #ebfffc;
+color: #555;
+padding: 10px 25px;
+height: 60px;
+border-radius: 30px;
+flex: 1;
+margin-right: 16px;
+font-size: 18px;
+
+}
+.search_chicago button{
+border: 0;
+outline: 0;
+background: #ebfffc;
+border-radius: 50%;
+width: 60px;
+height: 60px;
+cursor: pointer;
+}
+.search_chicago button img{
+width: 16px;
+}
+.weather-icon_chicago{
+width: 170px;
+margin-top: 30px;
+
+}
+.weather_chicago h1{
+font-size: 45px;
+font-weight: 400;
+margin-top: -10px;
+}
+.details_chicago{
+display: flex;
+align-items: center;
+align-items: center;
+justify-content: space-between;
+padding: 0 20px;
+margin-top: 50px;
+
+}
+.col_chicago{
+display: flex;
+align-items: center;
+text-align: left;
+}
+.col_chicago img{
+width: 40px;
+margin-left: 10px;
+
+}
+.humidity_chicago, .wind_chicago{
+font-size: 28px;
+margin-top: -6px;
+
+}
+.weather_chicago{
+display: none;
+}
+.error_chicago{
+text-align: left;
+margin-left: 10px;
+font-size: 14px;
+margin-top: 10px;
+display: none;
+}
+
+.card_new_york{
+  width: 90%;
+  max-width: 470px;
+  background: linear-gradient(135deg, #00feba, #5b548a);
+  color: #fff;
+  margin: 100px auto 0;
+  border-radius: 20px;
+  padding: 40px 35px;
+  text-align: center;
+  display: inline-block;
+
+}
+.search_new_york{
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: space-between;
+
+}
+.search_new_york input{
+border: 0;
+outline: 0;
+background: #ebfffc;
+color: #555;
+padding: 10px 25px;
+height: 60px;
+border-radius: 30px;
+flex: 1;
+margin-right: 16px;
+font-size: 18px;
+
+}
+.search_new_york button{
+border: 0;
+outline: 0;
+background: #ebfffc;
+border-radius: 50%;
+width: 60px;
+height: 60px;
+cursor: pointer;
+}
+.search_new_york button img{
+width: 16px;
+}
+.weather-icon_new_york{
+width: 170px;
+margin-top: 30px;
+
+}
+.weather-icon_new_york h1{
+font-size: 45px;
+font-weight: 400;
+margin-top: -10px;
+
+}
+.details_new_york{
+display: flex;
+align-items: center;
+align-items: center;
+justify-content: space-between;
+padding: 0 20px;
+margin-top: 50px;
+}
+.col_new_york{
+display: flex;
+align-items: center;
+text-align: left;
+}
+.col_new_york img{
+width: 40px;
+margin-right: 10px;
+}
+.humidity_new_york, .wind_new_york{
+font-size: 28px;
+margin-top: -6px;
+
+}
+.weather-icon_new_york{
+width: 170px;
+margin-top: 30px;
+}
+.error_new_york{
+text-align: left;
+margin-left: 10px;
+font-size: 14px;
+margin-top: 10px;
+display: none;
+}
+
+.card_miami{
+  width: 90%;
+  max-width: 470px;
+  background: linear-gradient(135deg, #00feba, #5b548a);
+  color: #fff;
+  margin: 100px auto 0;
+  border-radius: 20px;
+  padding: 40px 35px;
+  text-align: center;
+
+}
+.search_miami{
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: space-between;
+
+}
+.search_miami{
+border: 0;
+outline: 0;
+background: #ebfffc;
+color: #555;
+padding: 10px 25px;
+height: 60px;
+border-radius: 30px;
+flex: 1;
+margin-right: 16px;
+font-size: 18px;
+
+}
+.search_miami button{
+border: 0;
+outline: 0;
+background: #ebfffc;
+border-radius: 50%;
+width: 60px;
+height: 60px;
+cursor: pointer;
+}
+.search_miami button img{
+width: 16px;
+}
+.weather-icon_miami{
+width: 170px;
+margin-top: 30px;
+
+}
+.weather_miami h1{
+font-size: 45px;
+font-weight: 400;
+margin-top: -10px;
+}
+.details_miami{
+display: flex;
+align-items: center;
+align-items: center;
+justify-content: space-between;
+padding: 0 20px;
+margin-top: 50px;
+
+}
+.col_miami{
+display: flex;
+align-items: center;
+text-align: left;
+}
+.col_miami img{
+width: 40px;
+margin-left: 10px;
+
+}
+.humidity_miami, .wind_miami{
+font-size: 28px;
+margin-top: -6px;
+
+}
+.weather_miami{
+display: none;
+}
+.error_miami{
+text-align: left;
+margin-left: 10px;
+font-size: 14px;
+margin-top: 10px;
+display: none;
+}
+
+.card_losangeles{
+  width: 90%;
+  max-width: 470px;
+  background: linear-gradient(135deg, #00feba, #5b548a);
+  color: #fff;
+  margin: 100px auto 0;
+  border-radius: 20px;
+  padding: 40px 35px;
+  text-align: center;
+
+}
+.search_losangeles{
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: space-between;
+
+}
+.search_losangeles{
+border: 0;
+outline: 0;
+background: #ebfffc;
+color: #555;
+padding: 10px 25px;
+height: 60px;
+border-radius: 30px;
+flex: 1;
+margin-right: 16px;
+font-size: 18px;
+
+}
+.search_losangeles{
+border: 0;
+outline: 0;
+background: #ebfffc;
+border-radius: 50%;
+width: 60px;
+height: 60px;
+cursor: pointer;
+}
+.search_losangeles button img{
+width: 16px;
+}
+.weather-icon_losangeles{
+width: 170px;
+margin-top: 30px;
+
+}
+.weather_losangeles h1{
+font-size: 45px;
+font-weight: 400;
+margin-top: -10px;
+}
+.details_losangeles{
+display: flex;
+align-items: center;
+align-items: center;
+justify-content: space-between;
+padding: 0 20px;
+margin-top: 50px;
+
+}
+.col_losangeles{
+display: flex;
+align-items: center;
+text-align: left;
+}
+.col_losangeles img{
+width: 40px;
+margin-left: 10px;
+
+}
+.humidity_losangeles, .wind_losangeles{
+font-size: 28px;
+margin-top: -6px;
+
+}
+.weather_losangeles{
+display: none;
+}
+.error_losangeles{
+text-align: left;
+margin-left: 10px;
+font-size: 14px;
+margin-top: 10px;
+display: none;
+}
